@@ -1,0 +1,156 @@
+<Project>
+
+    <PropertyGroup>
+        <TargetFramework>net11.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Company>Davide Nava</Company>
+        <Copyright>Davide Nava</Copyright>
+        <Authors>Davide Nava</Authors>
+        <ApplicationIcon>..\..\assets\img\logo.ico</ApplicationIcon>
+        <NeutralLanguage>en</NeutralLanguage>
+        <NuGetAudit>false</NuGetAudit>
+        <NuGetAuditLevel>low</NuGetAuditLevel>
+        <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <LangVersion>preview</LangVersion>
+        <EnablePreviewFeatures>true</EnablePreviewFeatures>
+        <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+        <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+        <RunAnalyzers>true</RunAnalyzers>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
+        <AnalysisLevel>preview-recommended</AnalysisLevel>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <ReportAnalyzer>true</ReportAnalyzer>
+        <AnalysisMode>All</AnalysisMode>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <StaticAnalysisCodeType>General</StaticAnalysisCodeType>
+        <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+        <AnalysisModeSecurity>All</AnalysisModeSecurity>
+        <HotReloadAutoRestart>true</HotReloadAutoRestart>
+        <RunCodeAnalysis>false</RunCodeAnalysis>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+        <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>ns_128.png</PackageIcon>
+        <RepositoryUrl>https://github.com/davide-nava/AesEncryptor</RepositoryUrl>
+<RepositoryType>git</RepositoryType>
+<PublishRepositoryUrl>true</PublishRepositoryUrl>
+<PackageReadmeFile>README.md</PackageReadmeFile>
+<PackageTags>aes;encryption;cryptography;security</PackageTags>
+        <Version Condition="'$(Version)' == ''">1.0.0</Version>
+        <AssemblyVersion>$(Version)</AssemblyVersion>
+        <FileVersion>$(Version)</FileVersion>
+        <PackageVersion>$(Version)</PackageVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference
+            Include="Microsoft.CodeAnalysis.NetAnalyzers"
+            Version="*"
+            PrivateAssets="all"/>
+
+        <PackageReference
+            Include="SonarAnalyzer.CSharp"
+            Version="*"
+            PrivateAssets="all"/>
+
+        <PackageReference
+            Include="StyleCop.Analyzers"
+            Version="1.2.0-beta.556"
+            PrivateAssets="all"/>
+
+        <PackageReference
+            Include="Roslynator.Analyzers"
+            Version="*"
+            PrivateAssets="all"/>
+
+        <PackageReference
+            Include="Roslynator.CodeFixes"
+            Version="*"
+            PrivateAssets="all"/>
+
+        <PackageReference
+            Include="SecurityCodeScan.VS2019"
+            Version="*"
+            PrivateAssets="all"/>
+
+        <PackageReference
+            Include="AsyncFixer"
+            Version="*"
+            PrivateAssets="all"/>
+
+        <PackageReference
+            Include="IDisposableAnalyzers"
+            Version="*"
+            PrivateAssets="all"/>
+
+        <PackageReference
+            Include="Meziantou.Analyzer"
+            Version="*"
+            PrivateAssets="all"/>
+
+        <PackageReference
+            Update="Roslynator.Core"
+            Version="*"/>
+        <PackageReference
+            Update="Microsoft.CodeAnalysis"
+            Version="*"/>
+        <PackageReference
+            Update="Roslynator.Analyzers"
+            Version="*"/>
+        <PackageReference
+            Update="Microsoft.CodeAnalysis.Workspaces.MSBuild"
+            Version="*"/>
+
+        <PackageReference
+            Update="Microsoft.CodeAnalysis.Workspaces.Common"
+            Version="*"/>
+
+    </ItemGroup>
+
+    <ItemGroup>
+        <AdditionalFiles
+            Include="..\..\assets\stylecop.json"
+            Link="stylecop.json"/>
+        <AdditionalFiles
+            Include="..\..\assets\img\logo.ico"
+            CopyToOutputDirectory="PreserveNewest"
+            Link="assets\img\logo.ico"/>
+        <AdditionalFiles
+            Include="..\..\assets\img\ns_128.png"
+            CopyToOutputDirectory="PreserveNewest"
+            Link="assets\img\ns_128.png"/>
+        <AdditionalFiles
+            Include="..\..\.editorconfig"
+            Link=".editorconfig"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <WarningsAsErrors>
+            $(WarningsAsErrors);
+            CA*;
+            IDE*;
+            SA*;
+            S*;
+            RCS*;
+            CS*
+        </WarningsAsErrors>
+        <NoWarn>$(NoWarn);</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\assets\img\ns_128.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>true</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        </ItemGroup>
+
+</Project>

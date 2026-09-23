@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Title>AesEncryptor</Title>
+        <Product>AesEncryptor</Product>
+        <Description>AesEncryptor</Description>
+        <PackageId>AesEncryptor</PackageId>
+        <RootNamespace>AesEncryptor</RootNamespace>
+        <AssemblyName>AesEncryptor</AssemblyName>
+        <Namespace>AesEncryptor</Namespace>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.1.26425.128"/>
+    </ItemGroup>
+
+</Project>
