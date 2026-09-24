@@ -87,7 +87,4 @@ jobs:
             - name: Publish to NuGet
               shell: pwsh
               run: |
-                  Write-Host "Key length: $($env:API_KEY.Length)"
-                  Write-Host "${{ steps.login.outputs.NUGET_API_KEY }}"
-                  Write-Host "${{ steps.nuget_login.outputs.token }}"
                   dotnet nuget push "artifacts\*.nupkg" --source https://api.nuget.org/v3/index.json --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --skip-duplicate
