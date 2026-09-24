@@ -50,6 +50,11 @@ jobs:
                     --no-restore `
                     -p:Version=${{ env.VERSION }}
 
+            - name: Verify Installer
+              shell: pwsh
+              run: |
+                  Get-ChildItem installer -Recurse | Format-Table FullName
+
             - name: Publish
               shell: pwsh
               run: |
@@ -79,18 +84,32 @@ jobs:
               run: |
                   ISCC installer\AesEncryptor.iss
 
+            - name: Show Installer Files
+              shell: pwsh
+              run: |
+                  Write-Host "===== INSTALLER DIRECTORY ====="
+                  Get-ChildItem installer -Recurse
+
             - name: Verify Installer
               shell: pwsh
               run: |
-                  Write-Host "Searching generated installers..."
-                  Get-ChildItem -Recurse *.exe | Select-Object FullName
+                  $files = Get-ChildItem installer\Output\*.exe -ErrorAction SilentlyContinue
+
+                  if (-not $files) {
+                    Write-Error "No installer found in installer\Output"
+                    exit 1
+                  }
+
+                  Write-Host "Generated installers:"
+                  $files | ForEach-Object {
+                    Write-Host $_.FullName
+                  }
 
             - name: Upload Installer Artifact
               uses: actions/upload-artifact@v4
               with:
                   name: installer
-                  path: |
-                      installer\Output\*.exe
+                  path: installer\Output\*.exe
 
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v2
@@ -98,7 +117,6 @@ jobs:
                   tag_name: ${{ github.ref_name }}
                   name: Release ${{ env.VERSION }}
                   generate_release_notes: true
-                  files: |
-                      installer\Output\*.exe
+                  files: installer\Output\*.exe
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

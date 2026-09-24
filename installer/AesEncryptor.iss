@@ -6,7 +6,8 @@ AppVersion={#MyAppVersion}
 AppPublisher=Davide
 DefaultDirName={autopf}\AesEncryptor
 DefaultGroupName=AesEncryptor
-OutputDir=.
+
+OutputDir=Output
 OutputBaseFilename=AesEncryptor-Setup
 
 Compression=lzma
