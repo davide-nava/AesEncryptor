@@ -1,18 +1,30 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <Title>AesEncryptor</Title>
         <Product>AesEncryptor</Product>
-        <Description>AesEncryptor</Description>
+        <Description>High-performance, enterprise-grade cryptographic library for .NET providing
+            authenticated encryption (AES-256-GCM) with OWASP-compliant PBKDF2 key derivation and
+            zero-allocation memory hygiene.</Description>
         <PackageId>AesEncryptor</PackageId>
         <RootNamespace>AesEncryptor</RootNamespace>
         <AssemblyName>AesEncryptor</AssemblyName>
         <Namespace>AesEncryptor</Namespace>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.1.26425.128"/>
+        <None Include=".\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference
+                Update="Microsoft.CodeAnalysis.NetAnalyzers"
+                Version="11.0.100-rc.1.26425.128" />
     </ItemGroup>
 
 </Project>

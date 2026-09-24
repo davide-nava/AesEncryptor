@@ -37,10 +37,10 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageIcon>ns_128.png</PackageIcon>
         <RepositoryUrl>https://github.com/davide-nava/AesEncryptor</RepositoryUrl>
-<RepositoryType>git</RepositoryType>
-<PublishRepositoryUrl>true</PublishRepositoryUrl>
-<PackageReadmeFile>README.md</PackageReadmeFile>
-<PackageTags>aes;encryption;cryptography;security</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>aes;encryption;cryptography;security</PackageTags>
         <Version Condition="'$(Version)' == ''">1.0.0</Version>
         <AssemblyVersion>$(Version)</AssemblyVersion>
         <FileVersion>$(Version)</FileVersion>
@@ -49,84 +49,84 @@
 
     <ItemGroup>
         <PackageReference
-            Include="Microsoft.CodeAnalysis.NetAnalyzers"
-            Version="*"
-            PrivateAssets="all"/>
+                Include="Microsoft.CodeAnalysis.NetAnalyzers"
+                Version="*"
+                PrivateAssets="all" />
 
         <PackageReference
-            Include="SonarAnalyzer.CSharp"
-            Version="*"
-            PrivateAssets="all"/>
+                Include="SonarAnalyzer.CSharp"
+                Version="*"
+                PrivateAssets="all" />
 
         <PackageReference
-            Include="StyleCop.Analyzers"
-            Version="1.2.0-beta.556"
-            PrivateAssets="all"/>
+                Include="StyleCop.Analyzers"
+                Version="1.2.0-beta.556"
+                PrivateAssets="all" />
 
         <PackageReference
-            Include="Roslynator.Analyzers"
-            Version="*"
-            PrivateAssets="all"/>
+                Include="Roslynator.Analyzers"
+                Version="*"
+                PrivateAssets="all" />
 
         <PackageReference
-            Include="Roslynator.CodeFixes"
-            Version="*"
-            PrivateAssets="all"/>
+                Include="Roslynator.CodeFixes"
+                Version="*"
+                PrivateAssets="all" />
 
         <PackageReference
-            Include="SecurityCodeScan.VS2019"
-            Version="*"
-            PrivateAssets="all"/>
+                Include="SecurityCodeScan.VS2019"
+                Version="*"
+                PrivateAssets="all" />
 
         <PackageReference
-            Include="AsyncFixer"
-            Version="*"
-            PrivateAssets="all"/>
+                Include="AsyncFixer"
+                Version="*"
+                PrivateAssets="all" />
 
         <PackageReference
-            Include="IDisposableAnalyzers"
-            Version="*"
-            PrivateAssets="all"/>
+                Include="IDisposableAnalyzers"
+                Version="*"
+                PrivateAssets="all" />
 
         <PackageReference
-            Include="Meziantou.Analyzer"
-            Version="*"
-            PrivateAssets="all"/>
+                Include="Meziantou.Analyzer"
+                Version="*"
+                PrivateAssets="all" />
 
         <PackageReference
-            Update="Roslynator.Core"
-            Version="*"/>
+                Update="Roslynator.Core"
+                Version="*" />
         <PackageReference
-            Update="Microsoft.CodeAnalysis"
-            Version="*"/>
+                Update="Microsoft.CodeAnalysis"
+                Version="*" />
         <PackageReference
-            Update="Roslynator.Analyzers"
-            Version="*"/>
+                Update="Roslynator.Analyzers"
+                Version="*" />
         <PackageReference
-            Update="Microsoft.CodeAnalysis.Workspaces.MSBuild"
-            Version="*"/>
+                Update="Microsoft.CodeAnalysis.Workspaces.MSBuild"
+                Version="*" />
 
         <PackageReference
-            Update="Microsoft.CodeAnalysis.Workspaces.Common"
-            Version="*"/>
+                Update="Microsoft.CodeAnalysis.Workspaces.Common"
+                Version="*" />
 
     </ItemGroup>
 
     <ItemGroup>
         <AdditionalFiles
-            Include="..\..\assets\stylecop.json"
-            Link="stylecop.json"/>
+                Include="..\..\assets\stylecop.json"
+                Link="stylecop.json" />
         <AdditionalFiles
-            Include="..\..\assets\img\logo.ico"
-            CopyToOutputDirectory="PreserveNewest"
-            Link="assets\img\logo.ico"/>
+                Include="..\..\assets\img\logo.ico"
+                CopyToOutputDirectory="PreserveNewest"
+                Link="assets\img\logo.ico" />
         <AdditionalFiles
-            Include="..\..\assets\img\ns_128.png"
-            CopyToOutputDirectory="PreserveNewest"
-            Link="assets\img\ns_128.png"/>
+                Include="..\..\assets\img\ns_128.png"
+                CopyToOutputDirectory="PreserveNewest"
+                Link="assets\img\ns_128.png" />
         <AdditionalFiles
-            Include="..\..\.editorconfig"
-            Link=".editorconfig"/>
+                Include="..\..\.editorconfig"
+                Link=".editorconfig" />
     </ItemGroup>
 
     <PropertyGroup>
@@ -147,10 +147,6 @@
             <Pack>True</Pack>
             <PackagePath>\</PackagePath>
         </None>
-        <None Include="..\..\README.md">
-            <Pack>true</Pack>
-            <PackagePath>\</PackagePath>
-        </None>
-        </ItemGroup>
+    </ItemGroup>
 
 </Project>
