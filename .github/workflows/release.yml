@@ -1,0 +1,104 @@
+name: Build Release
+
+on:
+    push:
+        tags:
+            - "v*"
+
+permissions:
+    contents: write
+
+jobs:
+    build:
+        name: Build Installer and Release
+        runs-on: windows-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup .NET 11 RC
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: "11.0.x"
+                  include-prerelease: true
+
+            - name: Extract Version
+              shell: pwsh
+              run: |
+                  $version = "${{ github.ref_name }}".TrimStart('v')
+                  "VERSION=$version" | Out-File $env:GITHUB_ENV -Append
+                  Write-Host "Building version $version"
+
+            - name: Show SDK Info
+              shell: pwsh
+              run: |
+                  dotnet --version
+                  dotnet --list-sdks
+
+            - name: Restore
+              shell: pwsh
+              run: |
+                  dotnet restore
+
+            - name: Build
+              shell: pwsh
+              run: |
+                  dotnet build `
+                    src/AesEncryptor.Wpf/AesEncryptor.Wpf.csproj `
+                    -c Release `
+                    --no-restore `
+                    -p:Version=${{ env.VERSION }}
+
+            - name: Publish
+              shell: pwsh
+              run: |
+                  dotnet publish `
+                    src/AesEncryptor.Wpf/AesEncryptor.Wpf.csproj `
+                    -c Release `
+                    -r win-x64 `
+                    --self-contained true `
+                    --no-build `
+                    -p:PublishSingleFile=true `
+                    -p:PublishTrimmed=false `
+                    -p:DebugType=None `
+                    -p:DebugSymbols=false `
+                    -p:Version=${{ env.VERSION }} `
+                    -p:AssemblyVersion=${{ env.VERSION }} `
+                    -p:FileVersion=${{ env.VERSION }}
+
+            - name: Install Inno Setup
+              shell: pwsh
+              run: |
+                  choco install innosetup -y
+
+            - name: Build Installer
+              shell: pwsh
+              env:
+                  VERSION: ${{ env.VERSION }}
+              run: |
+                  ISCC installer\AesEncryptor.iss
+
+            - name: Verify Installer
+              shell: pwsh
+              run: |
+                  Write-Host "Searching generated installers..."
+                  Get-ChildItem -Recurse *.exe | Select-Object FullName
+
+            - name: Upload Installer Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: installer
+                  path: |
+                      installer\Output\*.exe
+
+            - name: Create GitHub Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  tag_name: ${{ github.ref_name }}
+                  name: Release ${{ env.VERSION }}
+                  generate_release_notes: true
+                  files: |
+                      installer\Output\*.exe
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
