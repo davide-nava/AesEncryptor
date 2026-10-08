@@ -1,0 +1,141 @@
+# ==================================================
+# .NET / Visual Studio
+# ==================================================
+
+# Build output
+[Bb]in/
+[Oo]bj/
+publish/
+artifacts/
+
+# Logs
+[Ll]og/
+[Ll]ogs/
+*.log
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.userprefs
+*.rsuser
+*.sln.docstates
+*.DotSettings.user
+
+# ==================================================
+# Visual Studio Code
+# ==================================================
+
+.vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+
+*.code-workspace
+
+# ==================================================
+# JetBrains Rider
+# ==================================================
+
+.idea/
+*.sln.iml
+
+# ==================================================
+# Test Results
+# ==================================================
+
+[Tt]est[Rr]esult*/
+TestResults/
+coverage/
+coverage-results/
+
+# Coverage files
+coverage.cobertura.xml
+coverage.opencover.xml
+*.coverage
+*.coveragexml
+
+# ==================================================
+# NuGet
+# ==================================================
+
+*.nupkg
+*.snupkg
+
+packages/
+!packages/build/
+
+# ==================================================
+# Local Databases / Runtime Data
+# ==================================================
+
+data/
+
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# ==================================================
+# Secrets / Local Configuration
+# ==================================================
+
+appsettings.Development.local.json
+appsettings.Local.json
+appsettings.*.local.json
+
+secrets.json
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# User Secrets
+secrets/
+
+# Certificates / Keys
+*.pfx
+*.p12
+*.snk
+
+# ==================================================
+# OS Files
+# ==================================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ==================================================
+# AI / Tooling Caches
+# ==================================================
+
+.cursor/
+.copilot/
+
+# ==================================================
+# Temporary Files
+# ==================================================
+
+*.tmp
+*.temp
+*.bak
+*.cache

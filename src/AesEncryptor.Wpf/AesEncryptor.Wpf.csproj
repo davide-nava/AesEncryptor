@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net11.0-windows10.0.19041.0</TargetFramework>
+        <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
+        <OutputType>WinExe</OutputType>
+        <UseWPF>true</UseWPF>
+        <Title>AesEncryptor.Wpf</Title>
+        <Product>AesEncryptor.Wpf</Product>
+        <Description>AesEncryptor.Wpf</Description>
+        <PackageId>AesEncryptor.Wpf</PackageId>
+        <RootNamespace>AesEncryptor.Wpf</RootNamespace>
+        <AssemblyName>AesEncryptor.Wpf</AssemblyName>
+        <Namespace>AesEncryptor.Wpf</Namespace>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        <PublishTrimmed>false</PublishTrimmed>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AesEncryptor\AesEncryptor.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.1.26425.128" />
+    </ItemGroup>
+
+</Project>
