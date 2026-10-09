@@ -19,6 +19,9 @@ jobs:
         name: Build and Analyze
         runs-on: windows-latest
 
+        env:
+            DevExpress_License: ${{ secrets.DEVEXPRESS_LICENSE_KEY }}
+
         steps:
             - name: Checkout
               uses: actions/checkout@v4
