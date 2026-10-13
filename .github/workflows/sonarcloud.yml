@@ -1,0 +1,127 @@
+name: SonarQube
+
+on:
+    push:
+        branches:
+            - main
+
+    pull_request:
+        types:
+            - opened
+            - synchronize
+            - reopened
+
+permissions:
+    contents: read
+
+jobs:
+    build:
+        name: Build and Analyze
+        runs-on: windows-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Java 21
+              uses: actions/setup-java@v4
+              with:
+                  distribution: zulu
+                  java-version: 21
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: "11.0.x"
+                  include-prerelease: true
+
+            - name: Show SDK Info
+              shell: pwsh
+              run: |
+                  dotnet --version
+                  dotnet --list-sdks
+
+            - name: Cache Sonar Packages
+              uses: actions/cache@v4
+              with:
+                  path: ~\sonar\cache
+                  key: ${{ runner.os }}-sonar
+                  restore-keys: |
+                      ${{ runner.os }}-sonar
+
+            - name: Cache SonarScanner
+              id: cache-sonar-scanner
+              uses: actions/cache@v4
+              with:
+                  path: ${{ runner.temp }}\scanner
+                  key: ${{ runner.os }}-sonar-scanner
+                  restore-keys: |
+                      ${{ runner.os }}-sonar-scanner
+
+            - name: Install SonarScanner
+              if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+              shell: pwsh
+              run: |
+                  New-Item `
+                    -ItemType Directory `
+                    -Path "${{ runner.temp }}\scanner" `
+                    -Force
+
+                  dotnet tool install dotnet-sonarscanner `
+                    --tool-path "${{ runner.temp }}\scanner"
+
+            - name: Restore
+              shell: pwsh
+              run: |
+                  dotnet restore
+
+            - name: Sonar Begin
+              shell: pwsh
+              env:
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+              run: |
+                  ${{ runner.temp }}\scanner\dotnet-sonarscanner begin `
+                    /k:"navasoft_AesEncryptor" `
+                    /o:"navasoft" `
+                    /d:sonar.token="$env:SONAR_TOKEN" `
+                    /d:sonar.host.url="https://sonarcloud.io" `
+                    /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
+
+            - name: Build
+              shell: pwsh
+              run: |
+                  dotnet build `
+                    --configuration Release `
+                    --no-restore
+
+            - name: Run Tests With Coverage
+              shell: pwsh
+              run: |
+                  dotnet test `
+                    --configuration Release `
+                    --no-build `
+                    /p:CollectCoverage=true `
+                    /p:CoverletOutputFormat=opencover `
+                    /p:CoverletOutput=./TestResults/coverage
+
+            - name: Show Coverage Files
+              shell: pwsh
+              run: |
+                  Write-Host "Coverage files found:"
+                  Get-ChildItem `
+                    -Recurse `
+                    -Filter "*.xml"
+
+                  Get-ChildItem `
+                    -Recurse `
+                    -Filter "*coverage*"
+
+            - name: Sonar End
+              shell: pwsh
+              env:
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+              run: |
+                  ${{ runner.temp }}\scanner\dotnet-sonarscanner end `
+                    /d:sonar.token="$env:SONAR_TOKEN"

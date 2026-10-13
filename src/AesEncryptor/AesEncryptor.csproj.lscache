@@ -1,0 +1,141 @@
+version=2.2
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+project=AesEncryptor.csproj
+language=C#
+primary
+lastDtbSucceeded
+
+[properties]
+AssemblyName=AesEncryptor
+BaseIntermediateOutputPath=obj/
+BaseOutputPath=bin/
+MaxSupportedLangVersion=15.0
+OutputType=Library
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=AesEncryptor
+RunAnalyzers=true
+RunAnalyzersDuringLiveAnalysis=true
+TargetFramework=net11.0
+TargetFrameworkIdentifier=.NETCoreApp
+TargetFrameworkVersion=v11.0
+TargetPath=<PATH>bin/Debug/net11.0/AesEncryptor.dll
+TargetRefPath=<PATH>obj/Debug/net11.0/ref/AesEncryptor.dll
+TemporaryDependencyNodeTargetIdentifier=net11.0
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,8002
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/warn:11
+/doc:obj/Debug/net11.0/AesEncryptor.xml
+/define:TRACE;DEBUG;NET;NET11_0;NETCOREAPP;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NET11_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER
+/highentropyva+
+/nullable:enable
+/features:"InterceptorsNamespaces=;Microsoft.Extensions.Validation.Generated"
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/pathmap:"<NUGET>/=/_1/,C:/Program Files/DevExpress 26.1/Components/Offline Packages/=/_2/,C:/Program Files (x86)/Microsoft Visual Studio/Shared/NuGetPackages/=/_3/,C:/dev/AesEncryptor/=/_/,"
+/out:obj/Debug/net11.0/AesEncryptor.dll
+/refout:obj/Debug/net11.0/refint/AesEncryptor.dll
+/reportanalyzer
+/target:library
+/warnaserror+
+/utf8output
+/win32icon:../../assets/img/logo.ico
+/deterministic+
+/langversion:Preview
+/warnaserror+:,"CA*","IDE*","SA*","S*","RCS*","CS*",NU1605,SYSLIB0011
+
+[sourceFiles]
+obj/Debug/net11.0/
+ .NETCoreApp,Version=v11.0.AssemblyAttributes.cs
+ AesEncryptor.AssemblyInfo.cs
+ AesEncryptor.GlobalUsings.g.cs
+AesEncryptionService.cs
+
+[frameworkPacks]
+Microsoft.NETCore.App.Ref
+
+[metadataReferences]
+
+[analyzerReferences]
+<NETSDK>/Sdks/Microsoft.NET.Sdk/
+ analyzers/
+  Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
+  Microsoft.CodeAnalysis.NetAnalyzers.dll
+ codestyle/cs/
+  Microsoft.CodeAnalysis.CodeStyle.dll
+  Microsoft.CodeAnalysis.CodeStyle.Fixes.dll
+  Microsoft.CodeAnalysis.CSharp.CodeStyle.dll
+  Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.dll
+<NUGET>/
+ asyncfixer/2.1.0/analyzers/dotnet/cs/AsyncFixer.dll
+ idisposableanalyzers/4.0.8/analyzers/dotnet/cs/IDisposableAnalyzers.dll
+ meziantou.analyzer/3.0.302/analyzers/dotnet/roslyn5.9/cs/
+  Meziantou.Analyzer.CodeFixers.dll
+  Meziantou.Analyzer.dll
+ microsoft.codeanalysis.netanalyzers/11.0.100-rc.1.26425.128/analyzers/dotnet/cs/
+  Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
+  Microsoft.CodeAnalysis.NetAnalyzers.dll
+ roslynator.analyzers/5.0.1/analyzers/dotnet/roslyn5.0/cs/
+  Roslynator.CSharp.Analyzers.CodeFixes.dll
+  Roslynator.CSharp.Analyzers.dll
+  Roslynator_Analyzers_Roslynator.Common.dll
+  Roslynator_Analyzers_Roslynator.Core.dll
+  Roslynator_Analyzers_Roslynator.CSharp.dll
+  Roslynator_Analyzers_Roslynator.CSharp.Workspaces.dll
+  Roslynator_Analyzers_Roslynator.Workspaces.Common.dll
+  Roslynator_Analyzers_Roslynator.Workspaces.Core.dll
+ roslynator.codefixes/5.0.1/analyzers/dotnet/roslyn5.0/cs/
+  Roslynator.CSharp.CodeFixes.dll
+  Roslynator_CodeFixes_Roslynator.Common.dll
+  Roslynator_CodeFixes_Roslynator.Core.dll
+  Roslynator_CodeFixes_Roslynator.CSharp.dll
+  Roslynator_CodeFixes_Roslynator.CSharp.Workspaces.dll
+  Roslynator_CodeFixes_Roslynator.Workspaces.Common.dll
+  Roslynator_CodeFixes_Roslynator.Workspaces.Core.dll
+ securitycodescan.vs2019/5.6.7/analyzers/dotnet/
+  SecurityCodeScan.VS2019.dll
+  YamlDotNet.dll
+ sonaranalyzer.csharp/10.35.0.4138/analyzers/SonarAnalyzer.CSharp.dll
+ stylecop.analyzers.unstable/1.2.0.556/analyzers/dotnet/cs/
+  StyleCop.Analyzers.CodeFixes.dll
+  StyleCop.Analyzers.dll
+
+[sdkAnalyzerConfigPolicy]
+Microsoft.NET.Sdk/analyzers|AnalysisLevel=preview-recommended|AnalysisMode=All|CodeAnalysisTreatWarningsAsErrors=true
+Microsoft.NET.Sdk/codestyle/cs|AnalysisLevel=preview-recommended|AnalysisMode=All
+
+[analyzerConfigFiles]
+../../.editorconfig
+obj/Debug/net11.0/AesEncryptor.GeneratedMSBuildEditorConfig.editorconfig
+
+[additionalFiles]
+../../
+ assets/
+  img/
+   logo.ico
+   ns_128.png
+  stylecop.json
+ .editorconfig
+
+[projectReferences]
+
+[capabilities]
+NativeAOT
+Pack
+SupportsHotReload
