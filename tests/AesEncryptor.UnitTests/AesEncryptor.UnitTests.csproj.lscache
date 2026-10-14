@@ -109,7 +109,7 @@ Microsoft.NETCore.App.Ref
  meziantou.analyzer/3.0.302/analyzers/dotnet/roslyn5.9/cs/
   Meziantou.Analyzer.CodeFixers.dll
   Meziantou.Analyzer.dll
- microsoft.codeanalysis.netanalyzers/11.0.100-rc.1.26425.128/analyzers/dotnet/cs/
+ microsoft.codeanalysis.netanalyzers/11.0.100-rc.2.26504.105/analyzers/dotnet/cs/
   Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
   Microsoft.CodeAnalysis.NetAnalyzers.dll
  roslynator.analyzers/5.0.0/analyzers/dotnet/roslyn5.0/cs/
