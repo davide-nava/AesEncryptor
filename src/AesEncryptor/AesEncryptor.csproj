@@ -23,7 +23,7 @@
 
     <ItemGroup>
         <PackageReference Update="Meziantou.Analyzer" Version="3.0.303" />
-        <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.2.26504.105" />
+        <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.3.26522.148" />
         <PackageReference Update="Roslynator.Analyzers" Version="5.0.1" />
         <PackageReference Update="Roslynator.CodeFixes" Version="5.0.1" />
         <PackageReference Update="StyleCop.Analyzers" Version="1.3.18-beta" />
